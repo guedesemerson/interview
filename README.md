@@ -18,7 +18,7 @@ Create a containerized application that performs in the following areas:
 
 3. Front-end visualization tool that can:
 
-   - Display the integrated dataset as a map (e.g., leaflet, Mapbox)
+   - Display the integrated dataset as a map (e.g., [leaflet](https://leafletjs.com/), [Mapbox](https://www.mapbox.com/))
    - Provide interactive features to display the attributes (beyond the spatial location) of the data points on-click
 
 Additional, discuss:
@@ -26,9 +26,9 @@ Additional, discuss:
 - Areas that need to be further considered for the application to be used in a real world setting
 - Other open sources tools/libraries that you are curious about and would like to integrate into the application to enhance its features and reliability
 
-Some ideas for may include:
+Some ideas may (or may not) include:
 
 - How the data component would change as amount of data and variety of errors increase?
 - Dev ops and security considerations
 - Merits of different frameworks and design philosophies (serverless vs non serverless, React vs. Vue vs. others, different backend languages, etc.)
-- Any topics that peaks your interest :)
+- Or, any topics that peaks your interest :)
