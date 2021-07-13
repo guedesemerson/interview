@@ -23,6 +23,7 @@ Using the provided database tables, aws account, and object please accomplish th
    - Fetches data from the GraphQL endpoint you created
    - Summarizes various metrics from the properties dataset (eg. average and median estimated values, frequencies by bedroom)
    - Save the output summary to a S3 bucket
+   - Create a Docker image which will execute the script
 
 Additional, discuss:
 
