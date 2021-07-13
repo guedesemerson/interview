@@ -5,9 +5,16 @@ We would like you to push your known knowledge bounds and attempt to create a si
 We request that your final submission is clearly documented (eg. markdown, code comments, etc.) and is actively deployed on the dev AWS environment we provide you.
 
 username: provided via email
+   - please keep this information secret
 pwd: proivded via email 
+   -please keep this information secret 
+user-sercret: provided via email
+   -please keep this information secret
 aws regions: us-east-1
+   -please place all applicable aws output in this region and add tag "external" to all services you create. 
 account: propstream-dev
+
+Please submit all code as a pull request to this repo. Also, create a seperate readme file documenting your approach and outcome with enough details a 3rd-party could effectively test your deployed applications without additional guidence. 
 
 ## Objective
 
