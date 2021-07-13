@@ -1,25 +1,33 @@
-# Full Stack Interview
+# External Engineer Interview
 
-We would like you to push your known knowledge bounds and attempt to create a simple "full-stack" application using novel technologies.
+We would like you to push your known knowledge bounds and attempt to create a simple AWS based application using novel technologies.
 
-We request that your final submission is clearly documented (eg. markdown, code comments, etc.) and can be deployed via Docker Compose or similar methods.
+We request that your final submission is clearly documented (eg. markdown, code comments, etc.) and is actively deployed on the dev AWS environment we provide you.
+
+username: provided via email
+pwd: proivded via email 
+aws regions: us-east-1
+account: propstream-dev
 
 ## Objective
 
-Create a containerized application that performs in the following areas:
+Using the provided database tables, aws account, and object please accomplish the following tasks:
 
-1. Data management:
+Using AWS services: 
+Server-side:
+   1. Data management:
+   - You are provided two data table containing properities in the USA. Please link these table based on common attributes. Note you might need to do some manipulation and fuzzy matching to accomplish the highest match rates. 
+      - Validate the raw data provided for formatting, structure, and common fields. 
+      - Link the datasets by key attributes to create an integrated dataset.
+      - Store the integrated dataset in a common data model/data warehouse.
+   2. Setup a simple lambda function to query the linked table through an AWS appsync graphql point. 
 
-   - Validate the raw data provided for formatting, structure, and common fields
-   - Link the datasets by key attributes to create an integrated dataset.
-   - Store the integrated dataset in a common data model/data warehouse
+Client-side: 
+   1. Create a python application that make a request to the graphql endpoint you created and summarizes metrics on the merged dataset. 
+      - Package this python application into a docker container and deploy it as an aws ECS containerized application. 
+   2. Save the output summary to an S3 bucket you create in a json format.
+      - summary measure can include, but are not limited to, number of matched properties, average and median estimated values, frequencies by bedroom. 
 
-2. Web application backend using Python's [Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart) library
-
-3. Front-end visualization tool that can:
-
-   - Display the integrated dataset as a map (e.g., [leaflet](https://leafletjs.com/), [Mapbox](https://www.mapbox.com/))
-   - Provide interactive features to display the attributes (beyond the spatial location) of the data points on-click
 
 Additional, discuss:
 
@@ -30,5 +38,4 @@ Some ideas may (or may not) include:
 
 - How the data component would change as amount of data and variety of errors increase?
 - Dev ops and security considerations
-- Merits of different frameworks and design philosophies (serverless vs non serverless, React vs. Vue vs. others, different backend languages, etc.)
 - Or, any topics that peaks your interest :)
