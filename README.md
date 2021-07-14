@@ -10,7 +10,7 @@ The final submission should be:
 
 ## Objective
 
-Using the provided database tables, aws account, and object please accomplish the following tasks:
+Using the provided database tables, AWS account, and objectives please accomplish the following tasks:
 
 1. Using IPython/Jupyter notebook:
    - Join the provided datasets containing properties in the US based on common attributes. Note you might need to do some manipulation and fuzzy matching to accomplish the highest match rates.
@@ -25,7 +25,7 @@ Using the provided database tables, aws account, and object please accomplish th
    - Save the output summary to a S3 bucket
    - Create a Docker image which will execute the script
 
-Additional, discuss:
+Additionally, discuss:
 
 - Areas that need to be further considered for the application to be used in a real world setting
 - Other open sources tools/libraries that you are curious about and would like to integrate into the application to enhance its features and reliability
