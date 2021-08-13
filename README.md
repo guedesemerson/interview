@@ -11,7 +11,7 @@ The system as a whole should be:
 
 - deployed to AWS ECS as containerized services
 - contain endpoints to get data on a property, a property plus associated MLS listings records, or MLS listing only records by ID
-- log useful usage information to an external database (eg. a third RDS) 
+- log useful usage information to an external database (eg. a new schema in either of the RDS databases) 
 
 AWS account credentials will be provided via email and please use the tag 'external' whenever possible for the services you create. 
 
