@@ -1,6 +1,6 @@
 # Backend Engineer Interview
 
-Design and implement an application responsible for managing data access and retrieval from two separate databases, where one contains properties records and another contains MLS listing records, with a one to many relationship between property to MLS listings. 
+Design and implement an application responsible for managing data access and retrieval from two separate databases, where one contains properties records and another contains MLS listing records, with a one to many relationship between property to MLS listings and `property_id` column in the mls_listings table corresponds to the `id` column in the properties table. 
 
 The application will be composed of: 
 
