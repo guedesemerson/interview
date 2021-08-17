@@ -10,7 +10,6 @@ The application will be composed of three Python FastAPI services where:
 The system as a whole should be:
 
 - deployed to AWS ECS as containerized services
-- communicate with each other using localhost
 - provide a single set of endpoints (from the third service) to serve the users with data on a property, a property plus associated MLS listings records, and MLS listing only records by ID (ie. the three services should be meshed together)
 - authenticate via API Key
 - log useful usage information to additional tables either one of the RDS databases provided (eg, API key used, timestamp,and quanity/endpoint)
