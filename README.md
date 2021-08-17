@@ -2,16 +2,18 @@
 
 Design and implement an application responsible for managing data access and retrieval from two separate databases, where one contains properties records and another contains MLS listing records, with a one to many relationship between property to MLS listings and `property_id` column in the `mls_listings` table corresponds to the `id` column in the `properties` table. 
 
-The application will be composed of: 
+The application will be composed of three Python FastAPI services where: 
 
-- Python FastAPI based backends for each database, responsible for retrieving data from the database and responding the data back to the request client
-- an additional service to validates API keys, logs requests, and coordinates communications 
+- two of them are connected to their respective databases and will be responsible for retrieving and responding the data between client and databases
+- and, an additional third service to validates API keys, logs requests, and coordinates communications - this is also the service that will manage the endpoints for the client to interact with the application as a whole
 
 The system as a whole should be:
 
 - deployed to AWS ECS as containerized services
-- contain endpoints to get data on a property, a property plus associated MLS listings records, or MLS listing only records by ID. In other words, this service will be meshed together into a single response and endpoint - which on a single request would results from both. 
-- log useful usage information to an external database (eg. a new schema in either of the RDS databases). E.g, userkey, timestamp,and quanity/endpoint.  
+- communicate with each other using localhost
+- provide a single set of endpoints (from the third service) to serve the users with data on a property, a property plus associated MLS listings records, and MLS listing only records by ID (ie. the three services should be meshed together)
+- authenticate via API Key
+- log useful usage information to additional tables either one of the RDS databases provided (eg, API key used, timestamp,and quanity/endpoint)
 
 AWS account credentials will be provided via email and please use the tag 'external' whenever possible for the services you create. Please create all services in us-west-1 this where the credentials will have all permissions restricted to. The database user credentials will allow to make modifications to the two RDS instances provided. 
 
