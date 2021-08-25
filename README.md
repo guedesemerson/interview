@@ -17,3 +17,9 @@ The system as a whole should be:
 AWS account credentials will be provided via email and please use the tag 'external' whenever possible for the services you create. Please create all services in us-west-1 this where the credentials will have all permissions restricted to. The database user credentials will allow to make modifications to the two RDS instances provided. 
 
 In addition, discuss any modifications or alternative services you would use if this application were to be deployed in a real world setting, some ideas may include authentication services/methods, best practices for microservice integration/decomposition, caching, etc.
+
+## How to run?
+ - Make sure you have installed `docker` and `docker-compose`
+ - Run `docker-compose up -d`
+ - Head over to http://localhost:8080/api/v1/mls/docs for mls service docs 
+   and http://localhost:8080/api/v1/properties/docs for property service docs

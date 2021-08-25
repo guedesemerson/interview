@@ -1,0 +1,59 @@
+version: '3.7'
+
+services:
+  mls_service:
+    build: ./mls-service
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./mls-service/:/app/
+    ports:
+      - 8001:8000
+    environment:
+      - DATABASE_URI=postgresql://mls_db_username:mls_db_password@mls_db/mls_db_dev
+      - PROPERTY_SERVICE_HOST_URL=http://property_service:8000/api/v1/properties/
+    depends_on:
+      - mls_db
+
+  mls_db:
+    image: postgres:12.1-alpine
+    volumes:
+      - postgres_data_mls:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=mls_db_username
+      - POSTGRES_PASSWORD=mls_db_password
+      - POSTGRES_DB=mls_db_dev
+
+  property_service:
+    build: ./property-service
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./property-service/:/app/
+    ports:
+      - 8002:8000
+    environment:
+      - DATABASE_URI=postgresql://property_db_username:property_db_password@property_db/property_db_dev
+    depends_on:
+      - property_db
+
+  property_db:
+    image: postgres:12.1-alpine
+    volumes:
+      - postgres_data_property:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=property_db_username
+      - POSTGRES_PASSWORD=property_db_password
+      - POSTGRES_DB=property_db_dev
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - property_service
+      - mls_service
+
+volumes:
+  postgres_data_mls:
+  postgres_data_property:
