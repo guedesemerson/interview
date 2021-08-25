@@ -9,7 +9,7 @@ services:
     ports:
       - 8001:8000
     environment:
-      - DATABASE_URI=postgresql://mls_db_username:mls_db_password@mls_db/mls_db_dev
+      - DATABASE_URI=postgresql://postgres:0ixdEvKUMAe7Ie8sRoXg@example-db-mls.cluster-ctr2cyii89uy.us-west-2.rds.amazonaws.com:5432/postgres
       - PROPERTY_SERVICE_HOST_URL=http://property_service:8000/api/v1/properties/
     depends_on:
       - mls_db
@@ -19,9 +19,9 @@ services:
     volumes:
       - postgres_data_mls:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=mls_db_username
-      - POSTGRES_PASSWORD=mls_db_password
-      - POSTGRES_DB=mls_db_dev
+      - POSTGRES_USER=test-user
+      - POSTGRES_PASSWORD=PassyTh3W0rd!
+      - POSTGRES_DB=postgres
 
   property_service:
     build: ./property-service
@@ -31,7 +31,7 @@ services:
     ports:
       - 8002:8000
     environment:
-      - DATABASE_URI=postgresql://property_db_username:property_db_password@property_db/property_db_dev
+      - DATABASE_URI=postgresql://postgres:0ixdEvKUMAe7Ie8sRoXg@example-db-properties.cluster-ctr2cyii89uy.us-west-2.rds.amazonaws.com:5432/postgres
     depends_on:
       - property_db
 
@@ -40,9 +40,9 @@ services:
     volumes:
       - postgres_data_property:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=property_db_username
-      - POSTGRES_PASSWORD=property_db_password
-      - POSTGRES_DB=property_db_dev
+      - POSTGRES_USER=test-user
+      - POSTGRES_PASSWORD=PassyTh3W0rd!
+      - POSTGRES_DB=postgres
 
   nginx:
     image: nginx:latest
